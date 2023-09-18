@@ -3,14 +3,14 @@ import "./Carousel.css";
 import CarouselItem from "./CarouselItem";
 
 const Carousel = () => {
-  const [activeIndex, setActiveIndex] = useState(0); // Start with the second item
+  const [activeIndex, setActiveIndex] = useState(0);
   const items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-
+  const itemscount = 4;
   const updateIndex = (newIndex) => {
-    if (newIndex < 1) {
-      newIndex = items.length - 4; // Adjust for showing 3 items at a time
-    } else if (newIndex >= items.length - 3) {
-      newIndex = 0; // Adjust for showing 3 items at a time
+    if (newIndex < 0) {
+      newIndex = items.length - itemscount;
+    } else if (newIndex >= items.length - itemscount + 1) {
+      newIndex = 0;
     }
 
     setActiveIndex(newIndex);
@@ -20,10 +20,12 @@ const Carousel = () => {
     <div className="carousel">
       <div
         className="inner"
-        style={{ transform: `translate(-${activeIndex * 25}%)` }}
+        style={{
+          transform: `translate(-${(activeIndex * 100) / itemscount}%)`,
+        }}
       >
         {items.map((e, i) => (
-          <CarouselItem id={e} key={i} />
+          <CarouselItem id={e} key={i} width={100 / itemscount + "vw"} />
         ))}
       </div>
       <div className="carousel-buttons">
