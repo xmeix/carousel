@@ -1,6 +1,6 @@
 import "./CarouselItem.css";
-const CarouselItem = () => {
-  return <div className="carousel-item">Item</div>;
+const CarouselItem = ({ id }) => {
+  return <div className="carousel-item">Item {id}</div>;
 };
 
 export default CarouselItem;

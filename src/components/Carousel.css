@@ -1,3 +1,22 @@
-.carousel{
-    
+.carousel {
+  overflow: hidden;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: solid 1px white;
+}
+
+.inner {
+  white-space: nowrap;
+  transition: transform 0.3s;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  border: solid 1px yellow;
+}
+
+.carousel-buttons {
+  display: flex;
+  justify-content: space-evenly;
+
+  cursor: pointer;
 }
